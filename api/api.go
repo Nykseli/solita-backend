@@ -28,7 +28,7 @@ func nameTotal(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	total := db.GetTotalNameAmount()
-	jsonStr := fmt.Sprint("{total: ", total, "}")
+	jsonStr := fmt.Sprint("{\"total\": ", total, "}")
 	w.Write([]byte(jsonStr))
 }
 
@@ -38,7 +38,7 @@ func nameAmount(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	name := params["name"]
 	amount := db.GetNameAmount(name)
-	jsonStr := fmt.Sprint("{amount: ", amount, "}")
+	jsonStr := fmt.Sprint("{\"amount\": ", amount, "}")
 	w.Write([]byte(jsonStr))
 }
 
