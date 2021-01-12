@@ -68,6 +68,8 @@ func GetAllSortedName() NameData {
 // GetNameAmount retuns amount of name. 0 if name is not found
 // name is case insensitive
 func GetNameAmount(name string) int {
+	initNameData()
+
 	amount := 0
 	lowerName := strings.ToLower(name)
 	for _, nameCount := range nameDataInstance.Names {
@@ -82,6 +84,8 @@ func GetNameAmount(name string) int {
 
 // GetTotalNameAmount returns total amount of names in name data
 func GetTotalNameAmount() int {
+	initNameData()
+
 	total := 0
 	for _, nameCount := range nameDataInstance.Names {
 		total += nameCount.Amount
